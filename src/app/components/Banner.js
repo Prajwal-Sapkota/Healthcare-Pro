@@ -1,0 +1,70 @@
+"use client";
+import { useState, useEffect } from "react";
+
+export default function Banner() {
+  const slides = [
+    {
+      image: "/images/banner1.jpeg",
+      heading: "Modern. Elegant.",
+      subheading: "For healthcare professionals and institutions.",
+    },
+    {
+      image: "/images/banner2.jpeg",
+      heading: "Innovative Solutions",
+      subheading: "Empowering the future of healthcare.",
+    },
+    {
+      image: "/images/banner3.jpeg",
+      heading: "Trusted by Experts",
+      subheading: "Providing quality healthcare tools worldwide.",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); 
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  return (
+    <section className="relative w-full h-[70vh] sm:h-[500px] overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: "contain", 
+          }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4 sm:px-12">
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+              {slide.heading}
+            </h2>
+            <p className="text-xs sm:text-lg md:text-xl mt-2 sm:mt-4">
+              {slide.subheading}
+            </p>
+          </div>
+        </div>
+      ))}
+
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+              index === currentSlide ? "bg-white" : "bg-gray-400"
+            }`}
+          ></button>
+        ))}
+      </div>
+    </section>
+  );
+}
