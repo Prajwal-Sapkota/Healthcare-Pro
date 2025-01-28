@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 export default function Banner() {
   const slides = [
     {
-      image: "/images/banner1.jpeg",
+      image: "/images/banner1.jpg",
       heading: "Modern. Elegant.",
       subheading: "For healthcare professionals and institutions.",
     },
     {
-      image: "/images/banner2.jpeg",
+      image: "/images/banner2.jpg",
       heading: "Innovative Solutions",
       subheading: "Empowering the future of healthcare.",
     },
     {
-      image: "/images/banner3.jpeg",
+      image: "/images/banner3.jpg",
       heading: "Trusted by Experts",
       subheading: "Providing quality healthcare tools worldwide.",
     },
@@ -25,7 +25,7 @@ export default function Banner() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); 
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -40,27 +40,30 @@ export default function Banner() {
           }`}
           style={{
             backgroundImage: `url(${slide.image})`,
-            backgroundSize: "contain", 
+            backgroundSize: "cover",
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center px-4 sm:px-12">
+          <div className="absolute inset-0 bg-[#1b2565]/80 flex flex-col justify-center items-center text-[#fcfff9] text-center px-4 sm:px-12">
             <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               {slide.heading}
             </h2>
-            <p className="text-xs sm:text-lg md:text-xl mt-2 sm:mt-4">
+            <p className="text-sm sm:text-lg md:text-xl mt-2 sm:mt-4">
               {slide.subheading}
             </p>
           </div>
         </div>
       ))}
 
+      {/* Slide Indicators */}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              index === currentSlide ? "bg-white" : "bg-gray-400"
+              index === currentSlide
+                ? "bg-[#375bc7]"
+                : "bg-[#6dc5f1] hover:bg-[#375bc7]"
             }`}
           ></button>
         ))}

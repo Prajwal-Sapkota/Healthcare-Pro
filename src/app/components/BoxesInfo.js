@@ -4,29 +4,29 @@ export default function BoxesInfo() {
       title: 'Emergency Case',
       description: 'If you need a doctor urgently outside of opening hours, call emergency appointments.',
       button: 'Read More',
-      color: "bg-blue-300",
+      color: "bg-blue-500", 
     },
     {
       title: 'Doctors Timetable',
       description: 'View services and current timetable for our doctors.',
       button: 'Read More',
-      color: "bg-blue-500",
+      color: "bg-blue-900", 
     },
     {
       title: 'Opening Hours',
-      description:[
+      description: [
         'Monday-Thursday: 8.00-17.00',
         'Friday: 9.00-18.00',
         'Saturday: 9.30-17.30',
       ],
       button: '',
-      color: "bg-blue-700",
+      color: "bg-blue-400", 
     },
   ];
 
   return (
     <section className="container mx-auto py-10 px-6">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-5 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {boxes.map((box, index) => (
           <div
             key={index}
@@ -43,7 +43,7 @@ export default function BoxesInfo() {
               <p>{box.description}</p>
             )}
             {box.button && (
-              <button className="mt-4 px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-100">
+              <button className="mt-4 px-4 py-2 bg-white text-blue-800 rounded hover:bg-blue-100">
                 {box.button}
               </button>
             )}

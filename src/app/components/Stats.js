@@ -11,9 +11,9 @@ export const Stats = () => {
 
   return (
     <section
-      className="bg-blue-50 py-36 bg-cover bg-center bg-fixed"
+      className="bg-[#fcfff9] py-36 bg-cover bg-center bg-fixed"
       style={{
-        backgroundImage: "url('/images/background1.jpeg')", // Add your image path here
+        backgroundImage: "url('/images/background.jpg')",
       }}
     >
       <div className="container mx-auto grid md:grid-cols-4 gap-8 text-center">
@@ -22,11 +22,11 @@ export const Stats = () => {
             key={index}
             className="p-6 bg-white rounded-lg shadow-md flex flex-col items-center space-y-4"
           >
-            <div className="text-blue-500 text-4xl">
+            <div className="text-[#375bc7] text-4xl">
               {stat.icon}
             </div>
-            <h3 className="text-2xl font-bold text-gray-800">{stat.value}</h3>
-            <p className="text-gray-600">{stat.label}</p>
+            <h3 className="text-2xl font-bold text-[#1b2565]">{stat.value}</h3>
+            <p className="text-[#375bc7]">{stat.label}</p>
           </div>
         ))}
       </div>
