@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FaBars, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FiFacebook, FiTwitter, FiYoutube } from "react-icons/fi";
 
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -23,7 +24,7 @@ export default function Header() {
             </div>
             <div className="flex items-center space-x-2">
               <FaEnvelope />
-              <span>contact@medicenter.com</span>
+              <span>contact@healthcarepro.com</span>
             </div>
           </div>
 
@@ -49,11 +50,11 @@ export default function Header() {
           </div>
 
           <nav className="hidden md:flex space-x-6 text-[#1b2565]">
-            <a href="#" className="hover:text-[#375bc7]">Home</a>
-            <a href="#" className="hover:text-[#375bc7]">Blog</a>
-            <a href="#" className="hover:text-[#375bc7]">Pages</a>
-            <a href="#" className="hover:text-[#375bc7]">Departments</a>
-            <a href="#" className="hover:text-[#375bc7]">Contact</a>
+            <a href="/" className="hover:text-[#375bc7]">Home</a>
+            <a href="/blog" className="hover:text-[#375bc7]">Blog</a>
+            <a href="/pages" className="hover:text-[#375bc7]">Pages</a>
+            <a href="/departments" className="hover:text-[#375bc7]">Departments</a>
+            <a href="/contact" className="hover:text-[#375bc7]">Contact</a>
           </nav>
 
           <div className="md:hidden">
@@ -91,13 +92,12 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Mobile Navigation Links */}
             <ul className="flex flex-col items-center space-y-6 text-[#1b2565] py-8">
-              <li><a href="#" className="hover:text-[#375bc7]">Home</a></li>
-              <li><a href="#" className="hover:text-[#375bc7]">Blog</a></li>
-              <li><a href="#" className="hover:text-[#375bc7]">Pages</a></li>
-              <li><a href="#" className="hover:text-[#375bc7]">Departments</a></li>
-              <li><a href="#" className="hover:text-[#375bc7]">Contact</a></li>
+              <li><a href="/" className="hover:text-[#375bc7]">Home</a></li>
+              <li><a href="/blog" className="hover:text-[#375bc7]">Blog</a></li>
+              <li><a href="/pages" className="hover:text-[#375bc7]">Pages</a></li>
+              <li><a href="/departments" className="hover:text-[#375bc7]">Departments</a></li>
+              <li><a href="/contact" className="hover:text-[#375bc7]">Contact</a></li>
             </ul>
           </div>
         </div>

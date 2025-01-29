@@ -1,3 +1,4 @@
+"use client";
 export const Team = () => {
   const teamMembers = [
       {

@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import BoxesInfo from "./BoxesInfo";
 
 export default function Banner() {
   const slides = [
@@ -35,14 +37,18 @@ export default function Banner() {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: "cover",
-          }}
         >
+          <Image
+            src={slide.image}
+            alt={slide.heading}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            priority 
+          />
           <div className="absolute inset-0 bg-[#1b2565]/80 flex flex-col justify-center items-center text-[#fcfff9] text-center px-4 sm:px-12">
             <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               {slide.heading}
