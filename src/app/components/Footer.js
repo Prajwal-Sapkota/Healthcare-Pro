@@ -5,7 +5,7 @@ import { MdOutlinePrivacyTip } from "react-icons/md";
 export default function Footer() {
   return (
     <footer className="bg-gray-200 text-gray-800 py-10">
-      <div className="container mx-auto sm: px-2">
+      <div className="container mx-auto px-10">
         
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 mb-8 text-center sm:text-left">
           <div className="flex flex-col items-center sm:items-start bg-blue-400 text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">

@@ -34,7 +34,7 @@ export function Value() {
               key={index}
               className="group rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:border-[#375bc7]"
             >
-              <div className="relative h-36 mb-6 overflow-hidden">
+              <div className="relative h-36 mb-6">
                 <img
                   src={service.image}
                   alt={service.title}

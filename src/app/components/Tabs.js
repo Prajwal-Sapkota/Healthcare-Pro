@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa"; // Import the ArrowRight icon
 
@@ -53,10 +53,12 @@ export function Tabs() {
                     LEARN MORE
                     <FaArrowRight className="h-4 w-4" />
                   </button>
-                  <button className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 text-black rounded hover:border-[#375bc7] hover:text-[#375bc7] transition-colors">
-                    TIMETABLE
-                    <FaArrowRight className="h-4 w-4" />
-                  </button>
+                  <Link href="/doctorstimetable">
+                    <button className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 text-black rounded hover:border-[#375bc7] hover:text-[#375bc7] transition-colors">
+                      TIMETABLE
+                      <FaArrowRight className="h-4 w-4" />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,3 +1,5 @@
+
+import Link from "next/link";
 export default function BoxesInfo() {
   const boxes = [
     {
@@ -5,12 +7,14 @@ export default function BoxesInfo() {
       description: 'If you need a doctor urgently outside of opening hours, call emergency appointments.',
       button: 'Read More',
       color: "bg-blue-500", 
+      link:"/emergencycase",
     },
     {
       title: 'Doctors Timetable',
       description: 'View services and current timetable for our doctors.',
       button: 'Read More',
-      color: "bg-blue-900", 
+      color: "bg-blue-900",
+      link:"/doctorstimetable", 
     },
     {
       title: 'Opening Hours',
@@ -25,9 +29,10 @@ export default function BoxesInfo() {
   ];
 
   return (
-    <section className=" bg-white container mx-auto py-10 px-6">
+    <div className="bg-white">
+      <div className="container mx-auto py-10 px-6">
       
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-5">
           {boxes.map((box, index) => (
             <div
               key={index}
@@ -43,15 +48,17 @@ export default function BoxesInfo() {
               ) : (
                 <p>{box.description}</p>
               )}
-              {box.button && (
-                <button className="mt-4 px-4 py-2 bg-white text-blue-800 rounded hover:bg-blue-100">
-                  {box.button}
-                </button>
-              )}
+             {box.button && box.link ? (
+                <Link href={box.link}>
+                  <button className="mt-4 px-4 py-2 bg-white text-blue-800 rounded hover:bg-blue-100">
+                    {box.button}
+                  </button>
+                </Link>
+              ) : null}
             </div>
           ))}
         </div>
-      
-    </section>
+      </div>
+    </div>
   );
 }
