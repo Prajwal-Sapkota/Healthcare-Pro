@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import BoxesInfo from "./BoxesInfo";
+import Image from "next/image";
 
 export default function Banner() {
   const slides = [
@@ -40,7 +41,7 @@ export default function Banner() {
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={slide.image}
             alt={slide.heading}
             layout="fill"

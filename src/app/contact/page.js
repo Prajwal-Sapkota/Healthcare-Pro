@@ -43,7 +43,7 @@ export default function Contact() {
                 </LoadScript>
             </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 my-10 text-gray-800">
+        <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-0 lg:grid-cols-3 gap-5 xl:gap-10 my-10 text-gray-800">
             <div className="p-6 border shadow-md rounded-lg bg-[#375bc7] text-white">
             <h3 className="text-lg font-semibold flex items-center">
                 <FaMapMarkerAlt className="mr-2" /> Address

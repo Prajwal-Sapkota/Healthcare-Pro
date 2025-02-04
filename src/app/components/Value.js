@@ -1,9 +1,11 @@
+import Image from "next/image";
 export function Value() {
   const services = [
     {
       title: "HEALTHCARE CENTER",
       description: "Our goal is to provide a patient-centered medical home for all patients",
       image: "/images/healthcare.jpg",
+      
     },
     {
       title: "IMMEDIATE CARE",
@@ -35,9 +37,11 @@ export function Value() {
               className="group rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:border-[#375bc7]"
             >
               <div className="relative h-36 mb-6">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
+                  width={500}
+                  height={300}
                   className="object-cover w-full h-full transition-transform group-hover:scale-110"
                 />
               </div>

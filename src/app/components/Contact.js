@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaPhone } from "react-icons/fa";
-
+import Image from "next/image";
 export function Contact() {
   return (
     <section className="bg-[#fcfff9]">
@@ -22,10 +22,12 @@ export function Contact() {
             </Link>
           </div>
           <div className="relative rounded-lg overflow-hidden flex flex-col h-full">
-            <img
+            <Image
               src="/images/map.jpeg"
               alt="Location"
-              className="object-cover w-full h-64 sm:h-80 md:h-[400px]" // Set a max height for larger screens
+              width={1200}
+              height={800}
+              className="object-cover w-full h-64 sm:h-80 md:h-[400px]" 
             />
             <div className="absolute inset-0 bg-[#1b2565]/80 p-8 text-white">
               <h3 className="text-2xl sm:text-3xl font-bold mb-2">Kathmandu</h3>

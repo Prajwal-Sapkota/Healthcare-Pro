@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa"; // Import the ArrowRight icon
-
+import Image from "next/image";
 export function Tabs() {
   const [activeTab, setActiveTab] = useState("history");
 
@@ -35,9 +35,11 @@ export function Tabs() {
           {activeTab === "history" && (
             <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
               <div className="flex-shrink-0">
-                <img
+                <Image
                   src="/images/carenrelief.jpg"
                   alt="Care and Relief"
+                  width={500}
+                  height={300}
                   className="w-60 h-60 object-cover rounded-lg"
                 />
               </div>
