@@ -6,6 +6,9 @@ import { Team } from './components/Team';
 import { Value } from './components/Value';
 import { Tabs } from './components/Tabs';
 import { Contact } from './components/Contact';
+import FAQ from './components/Faq';
+import Faq from './components/Faq1';
+
 
 export default function Home() {
   return (
@@ -19,6 +22,8 @@ export default function Home() {
       <Team/>
       <Tabs/>
       <Contact/>
+      <Faq/>
+      
     </>
   );
 }
