@@ -1,13 +1,18 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaBars, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FiFacebook, FiTwitter, FiYoutube } from "react-icons/fi";
 
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const handleNavigation = (path) => {
+    router.push(path);
+    setIsMenuOpen(false);
+  };
 
   return (
     <header>
@@ -29,15 +34,15 @@ export default function Header() {
           </div>
 
           <div className="flex space-x-4 text-sm">
-            <a href="#" className="text-[#1b2565] hover:text-[#375bc7]">
+            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-[#375bc7]">
               <FiFacebook />
-            </a>
-            <a href="#" className="text-[#1b2565] hover:text-[#6dc5f1]">
+            </button>
+            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-[#6dc5f1]">
               <FiTwitter />
-            </a>
-            <a href="#" className="text-[#1b2565] hover:text-red-600">
+            </button>
+            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-red-600">
               <FiYoutube />
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -50,11 +55,11 @@ export default function Header() {
           </div>
 
           <nav className="hidden md:flex space-x-6 text-[#1b2565]">
-            <a href="/" className="hover:text-[#375bc7]">Home</a>
-            <a href="/blog" className="hover:text-[#375bc7]">Blog</a>
-            <a href="/pages" className="hover:text-[#375bc7]">Pages</a>
-            <a href="/departments" className="hover:text-[#375bc7]">Departments</a>
-            <a href="/contact" className="hover:text-[#375bc7]">Contact</a>
+            <button onClick={() => handleNavigation("/")} className="hover:text-[#375bc7]">Home</button>
+            <button onClick={() => handleNavigation("/blog")} className="hover:text-[#375bc7]">Blog</button>
+            <button onClick={() => handleNavigation("/pages")} className="hover:text-[#375bc7]">Pages</button>
+            <button onClick={() => handleNavigation("/departments")} className="hover:text-[#375bc7]">Departments</button>
+            <button onClick={() => handleNavigation("/contact")} className="hover:text-[#375bc7]">Contact</button>
           </nav>
 
           <div className="md:hidden">
@@ -93,11 +98,11 @@ export default function Header() {
             </div>
 
             <ul className="flex flex-col items-center space-y-6 text-[#1b2565] py-8">
-              <li><a href="/" className="hover:text-[#375bc7]">Home</a></li>
-              <li><a href="/blog" className="hover:text-[#375bc7]">Blog</a></li>
-              <li><a href="/pages" className="hover:text-[#375bc7]">Pages</a></li>
-              <li><a href="/departments" className="hover:text-[#375bc7]">Departments</a></li>
-              <li><a href="/contact" className="hover:text-[#375bc7]">Contact</a></li>
+              <li><button onClick={() => handleNavigation("/")} className="hover:text-[#375bc7]">Home</button></li>
+              <li><button onClick={() => handleNavigation("/blog")} className="hover:text-[#375bc7]">Blog</button></li>
+              <li><button onClick={() => handleNavigation("/pages")} className="hover:text-[#375bc7]">Pages</button></li>
+              <li><button onClick={() => handleNavigation("/departments")} className="hover:text-[#375bc7]">Departments</button></li>
+              <li><button onClick={() => handleNavigation("/contact")} className="hover:text-[#375bc7]">Contact</button></li>
             </ul>
           </div>
         </div>
