@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { FaBars, FaTimes, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import { FiFacebook, FiTwitter, FiYoutube } from "react-icons/fi";
+import { FaBars, FaTimes } from "react-icons/fa";
+import Topbar from "./topbar";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,39 +15,10 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <div className="bg-[#fcfff9] text-[#1b2565] border-b border-[#6dc5f1]">
-        <div className="container mx-auto flex justify-between items-center py-2 px-4">
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
-            <div className="flex items-center space-x-2">
-              <FaMapMarkerAlt />
-              <span>Kathmandu, Nepal</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaPhoneAlt />
-              <span>1234567890</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaEnvelope />
-              <span>contact@healthcarepro.com</span>
-            </div>
-          </div>
+    <>
+      <Topbar />
 
-          <div className="flex space-x-4 text-sm">
-            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-[#375bc7]">
-              <FiFacebook />
-            </button>
-            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-[#6dc5f1]">
-              <FiTwitter />
-            </button>
-            <button onClick={() => handleNavigation("#")} className="text-[#1b2565] hover:text-red-600">
-              <FiYoutube />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-[#fcfff9] shadow-md sticky top-0 z-50">
+      <header className="bg-[#fcfff9] shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center py-4 px-4">
           <div className="flex items-center">
             <img src="/images/logo.jpeg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
@@ -64,11 +35,7 @@ export default function Header() {
 
           <div className="md:hidden">
             <button onClick={toggleMenu} className="text-[#1b2565]">
-              {isMenuOpen ? (
-                <FaTimes className="text-xl" />
-              ) : (
-                <FaBars className="text-xl" />
-              )}
+              {isMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
             </button>
           </div>
         </div>
@@ -81,17 +48,16 @@ export default function Header() {
           onClick={toggleMenu}
         >
           <div
-            className={` bg-[#fcfff9] shadow-lg z-50 transform transition-transform duration-300 ${
+            className={`absolute top-0 left-0 w-full bg-[#fcfff9] shadow-lg z-50 transform transition-transform duration-300 ${
               isMenuOpen ? "translate-y-0" : "-translate-y-full"
             }`}
           >
-            <div className="flex justify-center items-center py-4">
-              <img src="/images/logo.jpeg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
-              <h1 className="text-xl font-bold text-[#375bc7]">HealthCare Pro</h1>
-            </div>
-
-            {/* Close Button */}
-            <div className="flex justify-end p-4">
+            <div className="flex justify-between items-center py-4 px-4">
+              <div className="flex items-center">
+                <img src="/images/logo.jpeg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
+                <h1 className="text-xl font-bold text-[#375bc7]">HealthCare Pro</h1>
+              </div>
+              {/* Close Button */}
               <button onClick={toggleMenu} className="text-[#1b2565]">
                 <FaTimes className="text-xl" />
               </button>
@@ -106,7 +72,7 @@ export default function Header() {
             </ul>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
