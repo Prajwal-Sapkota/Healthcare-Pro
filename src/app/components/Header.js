@@ -21,8 +21,8 @@ export default function Header() {
       <header className="bg-[#fcfff9] shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center py-4 px-4">
           <div className="flex items-center">
-            <img src="/images/logo.jpeg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
-            <h1 className="text-xl font-bold text-[#375bc7]">HealthCare Pro</h1>
+            <img src="/images/logo.jpg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
+            <h1 className="text-xl font-bold text-[#375bc7]">AAROGYA</h1>
           </div>
 
           <nav className="hidden md:flex space-x-6 text-[#1b2565]">
@@ -54,8 +54,8 @@ export default function Header() {
           >
             <div className="flex justify-between items-center py-4 px-4">
               <div className="flex items-center">
-                <img src="/images/logo.jpeg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
-                <h1 className="text-xl font-bold text-[#375bc7]">HealthCare Pro</h1>
+                <img src="/images/logo.jpg" alt="HealthCare Pro" className="h-8 w-8 mr-2" />
+                <h1 className="text-xl font-bold text-[#375bc7]">AAROGYA</h1>
               </div>
               {/* Close Button */}
               <button onClick={toggleMenu} className="text-[#1b2565]">

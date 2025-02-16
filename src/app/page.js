@@ -12,8 +12,7 @@ import Faq from './components/Faq1';
 
 export default function Home() {
   return (
-    <>
-      
+    <>      
       <Banner />
       <BoxesInfo />
       <Welcome/> 
