@@ -1,12 +1,11 @@
 import React from "react";
-import { FaHospital, FaDna, FaUsers, FaFlask } from "react-icons/fa";
-
+import {FaUserMd, FaStethoscope, FaBullhorn, FaHospitalSymbol} from "react-icons/fa";
 export const Stats = () => {
   const stats = [
-    { icon: <FaHospital />, value: "20,537", label: "Hospitalizations" },
-    { icon: <FaDna />, value: "16,205", label: "Ambulatory Cases" },
-    { icon: <FaUsers />, value: "10,852", label: "Employed Doctors" },
-    { icon: <FaFlask />, value: "12,460", label: "Laboratory Tests" },
+    { icon: <FaUserMd />, value: "20,537", label: "People Served" },
+    { icon: <FaStethoscope />, value: "16,205", label: "Health Screening Done" },
+    { icon: <FaBullhorn />, value: "10,852", label: "Awareness Events" },
+    { icon: <FaHospitalSymbol />, value: "12,460", label: "Network Institutions" },
   ];
 
   return (

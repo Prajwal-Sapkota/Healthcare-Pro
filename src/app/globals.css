@@ -4,15 +4,22 @@
 
 :root {
   --background: #f8f9fa;
-  --primary: #4caf50;
-  --secondary: #8bc34a;
+  --primary: #375bc7;
+  --secondary: #6dc5f1;
+  --foreground: #1b2565; /* ✅ Add for light mode */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1f2937;
     --foreground: #f9fafb;
+    --primary: #375bc7;
+    --secondary: #6dc5f1;
   }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -20,7 +27,9 @@ body {
   background: var(--background);
   font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }

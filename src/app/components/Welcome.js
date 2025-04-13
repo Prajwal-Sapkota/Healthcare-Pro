@@ -7,9 +7,9 @@ export const Welcome = () => {
     <section className="bg-[#fcfff9] py-16 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         
-        <div className="relative flex justify-center md:justify-end w-full ml-[-5%] sm:ml-[-15%] lg:ml-[-15%] mt-[-5%] md:mt-[-10%] lg:mt-[-5%] mb-[5%]">
+        <div className="relative flex justify-center md:justify-end w-full ml-[-5%] sm:ml-[-15%] lg:ml-[-15%] mt-[-5%] md:mt-[-10%] lg:mt-[-5%] mb-[5%] filter brightness-75">
           <Image
-            src="/images/doctor1.jpg"
+            src="/images/images (5).jpg"
             alt="Doctor"
             width={500}
             height={300}
@@ -17,18 +17,18 @@ export const Welcome = () => {
           />
           
           <Image
-            src="/images/doctor2.jpg"
+            src="/images/images (4).jpg"
             alt="Doctor"
             width={300}
             height={200}
-            className="absolute bottom-[-20%] right-[-5%] w-[60%] sm:w-[50%] md:w-[55%] lg:w-[50%] xl:w-[50%] shadow-lg rounded-lg"
+            className="absolute bottom-[-20%] right-[-5%] lg:right-[-15%] w-[60%] sm:w-[50%] md:w-[55%] lg:w-[50%] xl:w-[50%] shadow-lg rounded-lg filter brightness-100"
           />
         </div>
       
 
 
         <div className="space-y-6 lg:w-[80%] xl:w-[75%]">
-          <h4 className="text-3xl text-[#375bc7] font-medium text-center md:text-left">
+          <h4 className="text-3xl text-[#375bc7] font-medium text-center md:text-left mt-2">
             Welcome to Healthcare Pro
           </h4>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1b2565] leading-snug text-center md:text-left">

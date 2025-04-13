@@ -1,26 +1,26 @@
 import Image from "next/image";
+
 export function Value() {
   const services = [
     {
       title: "HEALTHCARE CENTER",
       description: "Our goal is to provide a patient-centered medical home for all patients",
-      image: "/images/healthcare.jpg",
-      
+      image: "/images/images1.jpg",
     },
     {
       title: "IMMEDIATE CARE",
       description: "Effective and affordable treatment for non-life threatening illnesses",
-      image: "/images/immediatecare.jpg",
+      image: "/images/images 2.jpg",
     },
     {
       title: "DIAGNOSTIC CENTER",
       description: "Offers a wide array of reliable lab and diagnostic imaging services",
-      image: "/images/diagnostic.jpg",
+      image: "/images/download (2).jpg",
     },
   ];
 
   return (
-    <section className="py-16 bg-[#fcfff9]">
+    <section className="pt-0 pb-16 bg-[#fcfff9]"> {/* Removed py-16 */}
       <div className="container mx-auto px-4 max-w-7xl lg:max-w-4xl">
         <div className="max-w-3xl mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4 text-[#1b2565]">We Value Your Family's Health and Your Time</h2>

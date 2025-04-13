@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import BoxesInfo from "./BoxesInfo";
 import Image from "next/image";
 
 export default function Banner() {

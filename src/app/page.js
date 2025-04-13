@@ -17,11 +17,12 @@ export default function Home() {
       <BoxesInfo />
       <Welcome/> 
       <Stats/>
+      <FAQ/>
       <Value/>
       <Team/>
       <Tabs/>
       <Contact/>
-      <Faq/>
+      
       
     </>
   );

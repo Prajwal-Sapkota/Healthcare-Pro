@@ -1,5 +1,5 @@
 "use client";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 import { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"; 
 import axios from "axios";
@@ -10,8 +10,8 @@ const mapContainerStyle = {
 };
 
 const center = {
-  lat: 27.7172, 
-  lng: 85.3240,
+  lat: 27.720916, // Aarogya Clinic, Jorpati, Kathmandu
+  lng: 85.371228
 };
 
 export default function Contact() {
@@ -21,8 +21,16 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showInfo, setShowInfo] = useState(false);
+
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ", 
+  })
+
+  if (!isLoaded) return <div>Loading Map...</div>
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,8 +52,7 @@ export default function Contact() {
       const response = await axios.post("https://school.samyamd.com.np/api/v1/contact", bdata, {
         headers: { "Content-Type": "application/json" },
       });
-      console.log("Sending the following data:", bdata);
-      console.log("Message sent successfully:", response.data);
+
       if (response.status === 200) {
         alert("Message Sent Successfully!");
         setFormData({
@@ -69,19 +76,34 @@ export default function Contact() {
     <div className="bg-white">
       <div className="max-w-6xl mx-auto p-6">
         <div id="mapSection">
-          <LoadScript googleMapsApiKey="AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ">
-            <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={12}>
-              <Marker position={center} />
+            <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
+              <Marker position={center}  label={{
+                text: "Aarogya",
+                color: "#6E260E",
+                fontSize: "16px",
+                fontWeight: "900",
+              }}
+              icon={{
+                url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                labelOrigin: new window.google.maps.Point(15, -10),
+              }} onClick={() => setShowInfo(true)} />
+              {showInfo && (
+                <InfoWindow position={center} onCloseClick={() => setShowInfo(false)}>
+                  <div>
+                    <h3 className="font-semibold text-[#1b2565]">Aarogya Clinic</h3>
+                    <p className="text-[#375bc7]">Jorpati, Kathmandu</p>
+                  </div>
+                </InfoWindow>
+              )}
             </GoogleMap>
-          </LoadScript>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-0 lg:grid-cols-3 gap-5 xl:gap-10 my-10 text-gray-800">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 xl:gap-10 my-10 text-gray-800">
           <div className="p-6 border shadow-md rounded-lg bg-[#375bc7] text-white">
             <h3 className="text-lg font-semibold flex items-center">
               <FaMapMarkerAlt className="mr-2" /> Address
             </h3>
-            <p>Kathmandu, Nepal</p>
+            <p>Jorpati, Kathmandu, Nepal</p>
           </div>
           <div className="p-6 border shadow-md rounded-lg bg-[#1b2565] text-white">
             <h3 className="text-lg font-semibold flex items-center">
@@ -101,7 +123,7 @@ export default function Contact() {
         <form onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
           <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <input 
               type="text" 
               name="name" 
@@ -143,7 +165,7 @@ export default function Contact() {
 
           <button 
             type="submit" 
-            className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565]"
+            className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Message"}
