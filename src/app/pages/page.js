@@ -3,7 +3,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { FaInfoCircle } from "react-icons/fa";
 
-
 export default function Pages() {
   const services = [
     {
@@ -60,49 +59,45 @@ export default function Pages() {
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Our Services</h1>
 
         <ul className="text-lg sm:text-xl text-black inline-block text-left space-y-6">
-            {services.map((service, index) => (
+          {services.map((service, index) => (
             <li key={index} className="mb-4">
-                <div className="flex items-center justify-between w-full max-w-md">
+              <div className="flex items-center justify-between w-full max-w-md">
                 <span>{service.name}</span>
                 <button
-                    onClick={() => toggleDetails(index)}
-                    className="ml-4 text-blue-600 hover:text-blue-800 text-xl focus:outline-none"
-                    aria-label="More Information"
+                  onClick={() => toggleDetails(index)}
+                  className="ml-4 text-blue-600 hover:text-blue-800 text-xl focus:outline-none"
+                  aria-label="More Information"
                 >
-                    <FaInfoCircle />
+                  <FaInfoCircle />
                 </button>
-                </div>
+              </div>
 
-                {openIndex === index && (
+              {openIndex === index && (
                 <div className="mt-2 text-sm text-gray-700 space-y-2 max-w-md ml-4">
-                    <div>
+                  <div>
                     <strong>What is {service.name}?</strong>
                     <p>{service.details.what}</p>
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                     <strong>Who will do it?</strong>
                     <p>{service.details.who}</p>
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                     <strong>What are the special preparations?</strong>
                     <p>{service.details.prep}</p>
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                     <strong>Other queries?</strong>
                     <p>
-                        <Link
-                        href="/contact/" className="text-blue-500"
-                        
-                        >
+                      <Link href="/contact#Form" className="text-blue-500">
                         Contact Us
-                        </Link>
+                      </Link>
                     </p>
-                    </div>
+                  </div>
                 </div>
-                )}
+              )}
             </li>
-            ))}
-
+          ))}
         </ul>
       </div>
     </div>

@@ -1,8 +1,9 @@
 "use client";
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
-import { useState } from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"; 
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios";
+import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from "@react-google-maps/api"; // Ensure correct import
 
 const mapContainerStyle = {
   width: "100%",
@@ -10,8 +11,8 @@ const mapContainerStyle = {
 };
 
 const center = {
-  lat: 27.720916, // Aarogya Clinic, Jorpati, Kathmandu
-  lng: 85.371228
+  lat: 27.720916, // Example location: Aarogya Clinic, Jorpati, Kathmandu
+  lng: 85.371228,
 };
 
 export default function Contact() {
@@ -25,12 +26,24 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
+  const formRef = useRef(null);
 
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("scroll") === "form" && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [searchParams]);
+
+  // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ", 
-  })
+    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ", // Replace with your actual API Key
+  });
 
-  if (!isLoaded) return <div>Loading Map...</div>
+  if (!isLoaded) {
+    return <div>Loading Map...</div>;
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -76,8 +89,10 @@ export default function Contact() {
     <div className="bg-white">
       <div className="max-w-6xl mx-auto p-6">
         <div id="mapSection">
-            <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
-              <Marker position={center}  label={{
+          <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
+            <Marker
+              position={center}
+              label={{
                 text: "Aarogya",
                 color: "#6E260E",
                 fontSize: "16px",
@@ -86,91 +101,72 @@ export default function Contact() {
               icon={{
                 url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                 labelOrigin: new window.google.maps.Point(15, -10),
-              }} onClick={() => setShowInfo(true)} />
-              {showInfo && (
-                <InfoWindow position={center} onCloseClick={() => setShowInfo(false)}>
-                  <div>
-                    <h3 className="font-semibold text-[#1b2565]">Aarogya Clinic</h3>
-                    <p className="text-[#375bc7]">Jorpati, Kathmandu</p>
-                  </div>
-                </InfoWindow>
-              )}
-            </GoogleMap>
+              }}
+              onClick={() => setShowInfo(true)}
+            />
+            {showInfo && (
+              <InfoWindow position={center} onCloseClick={() => setShowInfo(false)}>
+                <div>
+                  <h3 className="font-semibold text-[#1b2565]">Aarogya Clinic</h3>
+                  <p className="text-[#375bc7]">Jorpati, Kathmandu</p>
+                </div>
+              </InfoWindow>
+            )}
+          </GoogleMap>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 xl:gap-10 my-10 text-gray-800">
-          <div className="p-6 border shadow-md rounded-lg bg-[#375bc7] text-white">
-            <h3 className="text-lg font-semibold flex items-center">
-              <FaMapMarkerAlt className="mr-2" /> Address
-            </h3>
-            <p>Jorpati, Kathmandu, Nepal</p>
-          </div>
-          <div className="p-6 border shadow-md rounded-lg bg-[#1b2565] text-white">
-            <h3 className="text-lg font-semibold flex items-center">
-              <FaPhoneAlt className="mr-2" /> Contact Details
-            </h3>
-            <p>Phone: +977-9808181796</p>
-          </div>
-          <div className="p-6 border shadow-md rounded-lg bg-[#6dc5f1] text-white">
-            <h3 className="text-lg font-semibold flex items-center">
-              <FaEnvelope className="mr-2" /> Emails
-            </h3>
-            <p>aarogyaskinclinic@gmail.com</p>
-           
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
+        <div id="Form">
+        <form ref={formRef} onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
           <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
           <div className="grid grid-cols-1 gap-4">
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Name" 
-              required 
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
               className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
               value={formData.name}
-              onChange={handleChange} 
+              onChange={handleChange}
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <input 
-              type="text" 
-              name="phone" 
-              placeholder="Phone Number (Optional)" 
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number (Optional)"
               className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
               value={formData.phone}
-              onChange={handleChange} 
+              onChange={handleChange}
             />
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Email" 
-              required 
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
               className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
               value={formData.email}
-              onChange={handleChange} 
+              onChange={handleChange}
             />
           </div>
-          <textarea 
-            name="message" 
-            rows="4" 
-            placeholder="Your Message" 
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
             required
             className="p-3 border rounded-lg w-full mt-4 focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
             value={formData.message}
             onChange={handleChange}
           ></textarea>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
+      </div>
       </div>
     </div>
   );

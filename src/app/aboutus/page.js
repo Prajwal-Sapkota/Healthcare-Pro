@@ -48,11 +48,11 @@ export default function AboutUsPage() {
           </div>
 
           {/* Core Values Section */}
-          <div className="mb-16">
+          <div className="mb-16 px-4">
             <h2 className="text-3xl font-bold mb-8 text-center text-gray-700">
               Our Core Values
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-6 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {[
                 { title: "A", desc: "Accessibility" },
                 { title: "R", desc: "Respect" },
@@ -63,16 +63,15 @@ export default function AboutUsPage() {
               ].map((val, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-6 sm:p-4 rounded-lg shadow-lg w-full h-auto sm:h-20 sm:w-96 mx-auto"
+                  className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center"
                 >
-                  <h3 className="text-xl sm:text-base font-bold mb-2 text-gray-700 text-center">
-                    {val.title}
-                  </h3>
-                  <p className="text-gray-700 text-center text-sm sm:text-xs">{val.desc}</p>
+                  <h3 className="text-2xl font-bold text-gray-800">{val.title}</h3>
+                  <p className="text-sm text-gray-600 mt-2">{val.desc}</p>
                 </div>
               ))}
             </div>
           </div>
+
 
           {/* Objectives Section */}
           <div className="mb-8">
