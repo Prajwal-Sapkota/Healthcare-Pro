@@ -109,14 +109,14 @@ export default function Contact() {
             <h3 className="text-lg font-semibold flex items-center">
               <FaPhoneAlt className="mr-2" /> Contact Details
             </h3>
-            <p>Phone: 1234567890</p>
+            <p>Phone: +977-9808181796</p>
           </div>
           <div className="p-6 border shadow-md rounded-lg bg-[#6dc5f1] text-white">
             <h3 className="text-lg font-semibold flex items-center">
               <FaEnvelope className="mr-2" /> Emails
             </h3>
-            <p>booking@healthcarepro.com</p>
-            <p>contact@healthcarepro.com</p>
+            <p>aarogyaskinclinic@gmail.com</p>
+           
           </div>
         </div>
 

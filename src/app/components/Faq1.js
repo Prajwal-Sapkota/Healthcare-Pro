@@ -6,7 +6,7 @@ export default function Faq() {
   const [faqs, setFaqs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [openIndex, setOpenIndex] = useState([]);
+  const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
     async function fetchFAQs() {
@@ -20,8 +20,7 @@ export default function Faq() {
         );
 
         if (gettingStartedCategory && gettingStartedCategory.posts) {
-          const shuffledPosts = shuffleArray(gettingStartedCategory.posts);
-          setFaqs(shuffledPosts.slice(0, 4));
+          setFaqs(gettingStartedCategory.posts.slice(0, 3));
         } else {
           console.warn("No posts found for 'Getting Started' category");
         }
@@ -36,55 +35,42 @@ export default function Faq() {
   }, []);
 
   const toggleFAQ = (index) => {
-    setOpenIndex((prevIndex) =>
-      prevIndex.includes(index)
-        ? prevIndex.filter((i) => i !== index)
-        : [...prevIndex, index]
-    );
-  };
-
-  const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5);
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   if (loading) return <p className="text-center text-gray-500">Loading FAQs...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <section className="bg-[#fcfff9] text-[#1b2565] py-10">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-[#1b2565] mb-6">
+    <section className="bg-[#fcfff9] text-[#1b2565] py-12">
+      <div className="max-w-3xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-[#1b2565] mb-8">
           Frequently Asked Questions
         </h2>
-        <div className="max-w-2xl mx-auto space-y-4">
-          {faqs.length === 0 ? (
-            <p className="text-center text-gray-500">No FAQs available.</p>
-          ) : (
-            faqs.map((faq, index) => (
-              <div
-                key={faq.id}
-                className="border border-[#375bc7] rounded-lg overflow-hidden"
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.id}
+              className="border border-[#375bc7] rounded-xl overflow-hidden shadow-sm"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center px-6 py-4 bg-[#6dc5f1] text-[#1b2565] font-semibold text-left hover:bg-[#375bc7] hover:text-white transition-colors duration-300"
               >
-                <button
-                  className="w-full text-left flex justify-between items-center py-3 px-4 bg-blue-300 text-gray-800 hover:bg-[#6dc5f1] transition duration-300"
-                  onClick={() => toggleFAQ(index)}
-                  aria-expanded={openIndex.includes(index)}
-                >
-                  <span className="font-medium">{faq.name}</span>
-                  {openIndex.includes(index) ? (
-                    <FaChevronUp className="text-lg" />
-                  ) : (
-                    <FaChevronDown className="text-lg" />
-                  )}
-                </button>
-                {openIndex.includes(index) && (
-                  <div className="p-4 bg-white text-[#1b2565] border-t border-gray-300">
-                    {faq.content}
-                  </div>
+                {faq.name}
+                {openIndex === index ? (
+                  <FaChevronUp />
+                ) : (
+                  <FaChevronDown />
                 )}
-              </div>
-            ))
-          )}
+              </button>
+              {openIndex === index && (
+                <div className="px-6 py-4 bg-white text-[#375bc7] border-t border-gray-300">
+                  <div dangerouslySetInnerHTML={{ __html: faq.content }} />
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

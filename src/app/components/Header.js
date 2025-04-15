@@ -27,6 +27,8 @@ export default function Header() {
               src="/images/logo.jpg"
               alt="HealthCare Pro"
               className="h-14 w-14"
+             
+              
             />
             <h1 className="text-xl font-bold text-[#375bc7]">AAROGYA</h1>
             <a href="tel:+1234567890" className="ml-4 flex items-center gap-1 bg-green-500 text-white text-xs px-3 py-1 rounded-full hover:bg-green-600 transition md:hidden">

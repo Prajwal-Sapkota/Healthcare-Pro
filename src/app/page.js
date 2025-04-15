@@ -17,10 +17,8 @@ export default function Home() {
       <BoxesInfo />
       <Welcome/> 
       <Stats/>
-      <FAQ/>
+      <Faq/>
       <Value/>
-      <Team/>
-      <Tabs/>
       <Contact/>
       
       

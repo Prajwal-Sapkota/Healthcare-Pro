@@ -12,15 +12,15 @@ export default function Topbar() {
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
           <div className="flex items-center space-x-2">
             <FaMapMarkerAlt />
-            <span>Kathmandu, Nepal</span>
+            <span>Jorpati, Kathmandu, Nepal</span>
           </div>
           <div className="flex items-center space-x-2">
             <FaPhoneAlt />
-            <span>1234567890</span>
+            <span>+977-9808181796</span>
           </div>
           <div className="flex items-center space-x-2">
             <FaEnvelope />
-            <span>contact@healthcarepro.com</span>
+            <span>aarogyaskinclinic@gmail.com</span>
           </div>
         </div>
 

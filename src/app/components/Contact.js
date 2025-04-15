@@ -10,7 +10,7 @@ export function Contact() {
             <h3 className="text-red-700 text-2xl sm:text-3xl font-bold mb-4">In Case of Emergency Call</h3>
             <p className="text-[#375bc7] text-xl sm:text-2xl mb-4">
               <Link href="tel:+9771234567890" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
-                <FaPhone className="h-5 w-5" /> +977-1234567890
+                <FaPhone className="h-5 w-5" /> +977-9808181796
               </Link>
             </p>
             <p className="text-gray-600 mb-6">Please remember we care about your privacy.</p>

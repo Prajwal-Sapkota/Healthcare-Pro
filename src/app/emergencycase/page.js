@@ -22,26 +22,16 @@ export default function EmergencyCase() {
           <p className="text-lg sm:text-xl mt-2">
             
             <Link href="tel:+9771234567890" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
-              <FaPhone className="h-5 w-5" /> +977-1234567890
+              <FaPhone className="h-5 w-5" /> +977-9808181796
             </Link>
           </p>
 
           <p className="text-lg sm:text-xl">
             
-            <Link href="mailto:emergency@healthcarepro.com" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
-              <FaEnvelope className="h-5 w-5" /> emergency@healthcarepro.com
+            <Link href="mailto:aarogyaskinclinic@gmail.com" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
+              <FaEnvelope className="h-5 w-5" />aarogyaskinclinic@gmail.com
             </Link>
           </p>
-
-          <h2 className="text-2xl sm:text-3xl font-semibold text-[#375bc7] mt-6">
-            Available Services
-          </h2>
-          <ul className="list-disc ml-6 sm:ml-8 text-lg sm:text-xl space-y-2 mt-2">
-            <li>24/7 Emergency Response</li>
-            <li>Ambulance Services</li>
-            <li>Urgent Care Unit</li>
-            <li>Specialist Consultations</li>
-          </ul>
 
           <div className="flex justify-center mt-8">
             <Link href="/">

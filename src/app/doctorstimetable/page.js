@@ -13,7 +13,7 @@ export default function DoctorsTimetable() {
         </p>
 
         <div className="bg-white shadow-lg rounded-xl p-4 sm:p-8 lg:p-10 overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300 text-center">
+          <table className="w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-[#1b2565] text-white">
                 <th className="border border-gray-300 p-3">Doctor</th>
@@ -23,19 +23,35 @@ export default function DoctorsTimetable() {
             </thead>
             <tbody>
               <tr className="even:bg-[#f0f4ff]">
-                <td className="border border-gray-300 p-3">Dr. John Doe</td>
-                <td className="border border-gray-300 p-3">Cardiologist</td>
+                <td className="border border-gray-300 p-3">Dr. Rajeeb Kumar Deo</td>
+                <td className="border border-gray-300 p-3">Oncologist</td>
                 <td className="border border-gray-300 p-3">
-                  Mon - Fri (9:00 AM - 4:00 PM)
+                  Sun - Fri (7:00 AM - 9:00 AM)
                 </td>
               </tr>
               <tr className="even:bg-[#f0f4ff]">
-                <td className="border border-gray-300 p-3">Dr. Jane Smith</td>
-                <td className="border border-gray-300 p-3">Neurologist</td>
+                <td className="border border-gray-300 p-3">Dr. Santosh Gautam</td>
+                <td className="border border-gray-300 p-3">Internal Medicine</td>
                 <td className="border border-gray-300 p-3">
-                  Tue - Sat (10:00 AM - 5:00 PM)
+                  Sun - Fri (7:00 AM - 9:00 AM)
                 </td>
               </tr>
+              <tr className="even:bg-[#f0f4ff]">
+                <td className="border border-gray-300 p-3">Dr. Uttam Lamichhane</td>
+                <td className="border border-gray-300 p-3">General Practice</td>
+                <td className="border border-gray-300 p-3">
+                  Sun - Fri (7:00 AM - 9:00 AM)
+                </td>
+              </tr>
+              <tr className="even:bg-[#f0f4ff]">
+                <td className="border border-gray-300 p-3">Dr. Nirmal Ghimire</td>
+                <td className="border border-gray-300 p-3">Cardiologist</td>
+                <td className="border border-gray-300 p-3">
+                  Sun - Fri (7:00 AM - 9:00 AM)
+                </td>
+              </tr>
+              
+              
             </tbody>
           </table>
         </div>

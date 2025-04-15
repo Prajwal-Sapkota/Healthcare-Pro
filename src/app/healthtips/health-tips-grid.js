@@ -8,11 +8,11 @@ import MediaModal from "./media-modal"
 const healthTipsMedia = [
   {
     id: 1,
-    title: "Healthy Eating Habits",
+    title:"कोलोनोस्कोपी के हो?",
     type: "image",
-    thumbnail: "/placeholder.svg?height=400&width=600",
+    thumbnail: "/images/colonoscopy.jpg",
     source: "/placeholder.svg?height=800&width=1200",
-    description: "Learn about balanced nutrition and healthy eating habits.",
+    description: "कोलोनोस्कोपी भनेको आन्द्राको तल्लो  (कोलोन) र मलाशयको भित्री भाग हेर्न गरिने एक चिकित्सा प्रक्रिया हो। यस प्रक्रियामा एक लचिलो ट्युब (कोलोनोस्कोप) प्रयोग गरिन्छ, जसमा सानो क्यामेरा र प्रकाशको स्रोत जोडिएको हुन्छ। यो ट्युब गुदाबाट भित्र्याएर डाक्टरले कोलोनको अवस्था, जस्तै पोलिप (सानो मांसको ग्रोथ), सुन्निएको ठाउँ, अल्सर, वा क्यान्सर जस्ता समस्याहरू पत्ता लगाउँछन्।  ",
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ const healthTipsMedia = [
     type: "image",
     thumbnail: "/images/background.jpg",
     source: "/images/background.jpg",
-    description: "Tips to improve your sleep quality and duration.",
+    description: "Tips to improve your sleep quality and duration. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   },
 ]
 
@@ -71,7 +71,7 @@ export default function HealthTipsGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {healthTipsMedia.map((media) => (
           <div
             key={media.id}

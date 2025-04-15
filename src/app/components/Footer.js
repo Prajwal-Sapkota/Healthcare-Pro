@@ -13,32 +13,40 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 mb-8 text-center sm:text-left">
           <div className="flex flex-col items-center sm:items-start bg-blue-400 text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">
+          <button
+            onClick={() => router.push("/contact/#mapSection")}
+            className="flex flex-col items-center sm:items-start focus:outline-none"
+          >
             <FaMapMarkerAlt className="text-[#fcfff9] text-2xl mb-2" />
-            <button onClick={() => router.push("/contact/#mapSection")} className="text-lg font-semibold mb-2">
-              Find Us On Map
-            </button>
-            <p>Kathmandu, Nepal</p>
-          </div>
+            <span className="text-lg font-semibold mb-2">Find Us On Map</span>
+          </button>
+          <p>Jorpati, Kathmandu, Nepal</p>
+        </div>
 
-          <div className="flex flex-col items-center sm:items-start bg-blue-800 text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">
+        <div className="flex flex-col items-center sm:items-start bg-blue-800 text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">
+          <a
+            href="tel:9808181796"
+            className="flex flex-col items-center sm:items-start focus:outline-none"
+          >
             <FaPhoneAlt className="text-[#fcfff9] text-2xl mb-2" />
-            <a href="tel:1234567890" className="text-lg font-semibold mb-2">
-              Call for an Appointment
-            </a>
-            <p className="text-[#6dc5f1] hover:text-[#fcfff9] transition-colors duration-300">
-              1234567890
-            </p>
-          </div>
+            <span className="text-lg font-semibold mb-2">Call for an Appointment</span>
+          </a>
+          <p className="text-[#6dc5f1] hover:text-[#fcfff9] transition-colors duration-300">
+            +977-9808181796
+          </p>
+        </div>
 
-          <div className="flex flex-col items-center sm:items-start bg-[#375bc7] text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">
+        <div className="flex flex-col items-center sm:items-start bg-[#375bc7] text-white p-6 hover:text-[#fcfff9] transition-colors duration-300">
+          <a
+            href="mailto:contact@healthcarepro.com"
+            className="flex flex-col items-center sm:items-start focus:outline-none"
+          >
             <FaEnvelope className="text-[#fcfff9] text-2xl mb-2" />
-            <a href="mailto:contact@healthcarepro.com" className="text-lg font-semibold mb-2">
-              Send an Email
-            </a>
-            <p className="text-[#6dc5f1] hover:text-[#fcfff9] transition-colors duration-300">
-              contact@healthcarepro.com
-            </p>
-          </div>
+            <span className="text-lg font-semibold mb-2">Send an Email</span>
+          </a>
+          <p className="text-[#6dc5f1] hover:text-[#fcfff9] transition-colors duration-300">
+            aarogyaskinclinic@gmail.com
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 border-t border-gray-400 pt-6">
@@ -47,13 +55,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-[#1b2565] mb-2">About Us</h3>
             <p>At HealthCare Pro, we are dedicated to improving patient lives with high-quality care.</p>
             <p className="mt-2 flex items-center">
-              <FaMapMarkerAlt className="text-[#1b2565] mr-2" /> Kathmandu, Nepal
+              <FaMapMarkerAlt className="text-[#1b2565] mr-2" /> Jorpati, Kathmandu, Nepal
             </p>
             <p className="flex items-center">
-              <FaPhoneAlt className="text-[#1b2565] mr-2" /> 1234567890
+              <FaPhoneAlt className="text-[#1b2565] mr-2" /> +977-9808181796
             </p>
             <p className="flex items-center">
-              <FaEnvelope className="text-[#1b2565] mr-2" /> contact@healthcarepro.com
+              <FaEnvelope className="text-[#1b2565] mr-2" /> aarogyaskinclinic@gmail.com
             </p>
           </div>
 
@@ -112,7 +120,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-400 mt-8 pt-6 flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm">
           <div className="mb-4 sm:mb-0 sm:text-left">
-            <span className="text-[#1b2565]">© 2024 HealthCare Pro. All rights reserved.</span>
+            <span className="text-[#1b2565]">© 2025 Aarogya Well Care Clinic. All rights reserved.</span>
           </div>
 
           <div className="flex flex-row space-x-6 text-center">
@@ -128,6 +136,7 @@ export default function Footer() {
           </div>
         </div>
 
+      </div>
       </div>
     </footer>
   );

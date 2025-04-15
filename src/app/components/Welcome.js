@@ -29,21 +29,15 @@ export const Welcome = () => {
 
         <div className="space-y-6 lg:w-[80%] xl:w-[75%]">
           <h4 className="text-3xl text-[#375bc7] font-medium text-center md:text-left mt-2">
-            Welcome to Healthcare Pro
+            Welcome to Aarogya Well Care Polyclinic
           </h4>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1b2565] leading-snug text-center md:text-left">
-            Healthcare Pro holds the privilege of being the first choice hospital
+          <h2 className="text-xl sm:text-xl text-black leading-snug text-center md:text-left">
+          Aarogya Well Care Polyclinic was founded by a team of dedicated local doctors to improve access to quality cancer care and associated health services. We focus on early detection, diagnosis, and treatment while reaching out to the community through education and support.
           </h2>
-          <p className="text-[#375bc7] leading-relaxed text-center md:text-left">
-            Since its founding, we have become an integral part of the community,
-            advancing our mission of providing compassionate care. Today, patients
-            find care that combines world-class medicine with compassion.
-          </p>
+         
           <div className="flex items-start space-x-2 justify-center md:justify-start">
-            <FaCheckCircle className="text-[#375bc7] text-5xl" />
-            <p className="text-[#1b2565]">
-              Healthcare Pro is a people-centered environment — we prioritize your
-              care and every decision we make is centered around you.
+            <p className="text-xl text-black">
+            At Aarogya, every step is guided by compassion and a commitment to better health outcomes for individuals and families in our region.
             </p>
           </div>
         </div>

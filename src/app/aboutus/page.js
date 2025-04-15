@@ -17,23 +17,10 @@ export default function AboutUsPage() {
 
           {/* Hero Section */}
           <div className="relative w-full h-[300px] mb-12 rounded-lg overflow-hidden">
-            <Image
-              src="/placeholder.svg?height=600&width=1200"
-              alt="Clinic team"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-transparent flex items-center">
-              <div className="p-8 max-w-md">
-                <h2 className="text-2xl font-bold text-white mb-4">
-                  Caring for Your Health Since 2005
-                </h2>
-                <p className="text-white/90">
-                  Providing exceptional healthcare services with compassion and
-                  expertise.
+            <div className="bg-blue-100 p-6 rounded-lg">
+                <p className="text-xl mb-4 text-gray-700 text-justify">
+                  Arogya Well Care Polyclinic is an initiative launched by a team of local doctors and professionals from various specialties and backgrounds driven by a sense of responsibility to enhance cancer care accessibility and quality  along with other associated health services within the community. Key focus areas include early detection, diagnosis, and treatment, with an emphasis on community outreach and education. The initiative aims to reduce cancer-related morbidity and mortality rates, improve patient outcomes, and alleviate the burden of cancer on individuals and families in the region. Success will be measured by increased screening rates, earlier stage diagnoses, improved treatment adherence, and enhanced patient satisfaction.
                 </p>
-              </div>
             </div>
           </div>
 
@@ -44,15 +31,9 @@ export default function AboutUsPage() {
                 Our Mission
               </h2>
               <p className="text-gray-700 mb-4">
-                To provide exceptional healthcare services that improve the
-                quality of life for our patients through compassionate care,
-                innovative treatments, and a commitment to excellence.
+                Health screening, care and cure in PPP model
               </p>
-              <p className="text-gray-700">
-                We strive to make healthcare accessible to all members of our
-                community, ensuring that each patient receives personalized
-                attention and the highest standard of medical care.
-              </p>
+              
             </div>
 
             <div className="bg-blue-100 p-6 rounded-lg">
@@ -60,15 +41,9 @@ export default function AboutUsPage() {
                 Our Vision
               </h2>
               <p className="text-gray-700 mb-4">
-                To be the leading healthcare provider in our region, recognized
-                for clinical excellence, patient-centered care, and innovative
-                health solutions.
+                To set up newer approaches in healthcare involving community
               </p>
-              <p className="text-gray-700">
-                We envision a community where optimal health and wellness are
-                achievable for everyone through preventive care, education, and
-                cutting-edge medical practices.
-              </p>
+             
             </div>
           </div>
 
@@ -77,67 +52,47 @@ export default function AboutUsPage() {
             <h2 className="text-3xl font-bold mb-8 text-center text-gray-700">
               Our Core Values
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-6 gap-8">
               {[
-                {
-                  title: "Excellence",
-                  desc: "We are committed to delivering the highest quality of care and continuously improving our services.",
-                },
-                {
-                  title: "Compassion",
-                  desc: "We treat each patient with kindness, empathy, and respect, recognizing their unique needs.",
-                },
-                {
-                  title: "Integrity",
-                  desc: "We uphold the highest ethical standards and are transparent in all our interactions.",
-                },
-                {
-                  title: "Innovation",
-                  desc: "We embrace new technologies and approaches to enhance patient care and outcomes.",
-                },
+                { title: "A", desc: "Accessibility" },
+                { title: "R", desc: "Respect" },
+                { title: "O", desc: "Optimism" },
+                { title: "G", desc: "Gratitude" },
+                { title: "Y", desc: "You-first" },
+                { title: "A", desc: "Accountability" },
               ].map((val, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold mb-2 text-gray-700">
+                <div
+                  key={idx}
+                  className="bg-white p-6 sm:p-4 rounded-lg shadow-lg w-full h-auto sm:h-20 sm:w-96 mx-auto"
+                >
+                  <h3 className="text-xl sm:text-base font-bold mb-2 text-gray-700 text-center">
                     {val.title}
                   </h3>
-                  <p className="text-gray-700">{val.desc}</p>
+                  <p className="text-gray-700 text-center text-sm sm:text-xs">{val.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Objectives Section */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-700">Our Objectives</h2>
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-1 text-center text-gray-700">Our Objective</h2>
             <div className="bg-blue-50 p-8 rounded-lg">
-              <ul className="space-y-4 text-gray-700">
+              <ul className="space-y-4 text-gray-700 ">
                 {[
                   {
-                    title: "Provide Patient-Centered Care",
-                    desc: "Deliver healthcare services that respect patient preferences, needs, and values.",
+                    title: "To offer comprehensive care leveraging technology, engaging community, and thus by ensuring patient centered service",
+                    
                   },
-                  {
-                    title: "Promote Preventive Healthcare",
-                    desc: "Focus on preventive measures and early intervention to reduce the incidence of disease.",
-                  },
-                  {
-                    title: "Ensure Accessibility",
-                    desc: "Make healthcare services accessible to all regardless of socioeconomic status or location.",
-                  },
-                  {
-                    title: "Foster Continuous Improvement",
-                    desc: "Continuously evaluate and improve our services and processes.",
-                  },
+                  
                 ].map((obj, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <div className="bg-blue-600/10 p-2 rounded-full mr-4 mt-1">
-                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-                    </div>
+                  <p key={idx} className="flex items-start">
+                    
                     <div>
-                      <h3 className="font-semibold text-lg">{obj.title}</h3>
-                      <p className="text-gray-700">{obj.desc}</p>
+                      <h3 className="text-lg">{obj.title}</h3>
+                      
                     </div>
-                  </li>
+                  </p>
                 ))}
               </ul>
             </div>
@@ -145,7 +100,7 @@ export default function AboutUsPage() {
 
           {/* Our Team Section */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-700">Our Team</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center text-gray-700 ">Our Team</h2>
 
             {/* Tab Buttons */}
             <div className="flex justify-center gap-4 mb-8">
@@ -170,7 +125,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Tab Content */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {(activeTab === "doctors"
                 ? doctors
                 : activeTab === "nurses"
@@ -231,17 +186,50 @@ function TeamMemberCard({ member }) {
 const doctors = [
   {
     id: 1,
-    name: "Dr. Sarah Johnson",
-    role: "Chief Medical Officer",
+    name: "Dr. Rajeeb Kumar Deo",
+    role: "Senior Oncologist",
     bio: "Leading our medical team with compassion and precision.",
-    image: "/images/team1.jpeg",
-    experience: "15+ years in family medicine",
-    education: "Harvard Medical School",
-    specialty: "Family Medicine, Chronic Illness",
-    contact: "sarah.johnson@clinic.com",
+    image: "/images/doctor1.png",
+    experience: "20+ years as a clinician",
+    education: "MBBS, AFMC, Pune MD (Internal Medicine), BPKIHS, Dharan Fellowship in Medical Oncology, RGCI, Delhi Diploma Aerospace Medicine, USAFSAM, USA Professional Diploma in Clinical Research",
+    specialty: "Oncology",
+    contact: "rajeebdeo@yahoo.com",
   },
   {
     id: 2,
+    name: "Dr. Santosh Gautam",
+    role: "Internal Medicine",
+    bio: "Specializes in all common medical conditions.",
+    image: "/images/doctor3.jpg",
+    experience: "10+ years in cardiology",
+    education: "MBBS/MD, KIST Medical College",
+    specialty: "General Physician",
+    contact: "aarogyaskinclinic@gmail.com",
+  },
+  {
+    id: 3,
+    name: "Dr. Uttam Lamichhane",
+    role: "General Practice",
+    bio: "Specilaizes in General Practice",
+    image: "/placeholder.svg?height=400&width=300",
+    experience: "10+ years in General Practice",
+    education: "MBBS Nepal Medical College, MD NAMS",
+    specialty: "General Practice",
+    contact: "aarogyaskinclinic@gmail.com",
+  },
+  {
+    id: 4,
+    name: "Dr. Nirmal Ghimire ",
+    role: "Cardiologist",
+    bio: "Specializes in cardiovascular treatments and diagnostics.",
+    image: "/placeholder.svg?height=400&width=300",
+    experience: "10+ years in cardiology",
+    education: "",
+    specialty: "Heart Disease, Hypertension",
+    contact: "aarogyaskinclinic@gmail.com",
+  },
+  {
+    id: 5,
     name: "Dr. Mark Patel",
     role: "Cardiologist",
     bio: "Specializes in cardiovascular treatments and diagnostics.",
@@ -252,7 +240,7 @@ const doctors = [
     contact: "mark.patel@clinic.com",
   },
   {
-    id: 3,
+    id: 6,
     name: "Dr. Mark Patel",
     role: "Cardiologist",
     bio: "Specializes in cardiovascular treatments and diagnostics.",
@@ -266,7 +254,7 @@ const doctors = [
 
 const nurses = [
   {
-    id: 3,
+    id: 7,
     name: "Nurse Robert Kim",
     role: "Head Nurse",
     bio: "Ensures every patient receives quality care.",
@@ -277,7 +265,7 @@ const nurses = [
     contact: "robert.kim@clinic.com",
   },
   {
-    id: 4,
+    id: 8,
     name: "Nurse Emily Rose",
     role: "Pediatric Nurse",
     bio: "Focused on the health and well-being of children.",
@@ -291,7 +279,7 @@ const nurses = [
 
 const staff = [
   {
-    id: 5,
+    id: 9,
     name: "Jessica Williams",
     role: "Clinic Administrator",
     bio: "Ensures the clinic operates smoothly day-to-day.",
@@ -302,7 +290,7 @@ const staff = [
     contact: "jessica.williams@clinic.com",
   },
   {
-    id: 6,
+    id: 10,
     name: "Michael Lee",
     role: "Front Desk Executive",
     bio: "First point of contact for all patients.",
