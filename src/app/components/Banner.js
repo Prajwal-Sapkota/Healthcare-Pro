@@ -6,19 +6,36 @@ export default function Banner() {
   const slides = [
     {
       image: "/images/banner1.jpg",
-      heading: "Modern. Elegant.",
+      heading: "सर्वे सन्तु निरामयाः",
       subheading: "For healthcare professionals and institutions.",
     },
     {
       image: "/images/banner2.jpg",
-      heading: "Innovative Solutions",
+      heading: "Together for your Care",
+      subheading: "Empowering the future of healthcare.",
+    },
+    
+    {
+      image: "/images/banner1.jpg",
+      heading: "आपदां अपहर्ता, आरोग्यस्य दाता।",
       subheading: "Empowering the future of healthcare.",
     },
     {
       image: "/images/banner3.jpg",
-      heading: "Trusted by Experts",
+      heading: "Driven by Responsibility",
       subheading: "Providing quality healthcare tools worldwide.",
     },
+    {
+      image: "/images/banner2.jpg",
+      heading: "रोगान् शेषान् पहसि तुष्टा",
+      subheading: "Providing quality healthcare tools worldwide.",
+    },
+    {
+      image: "/images/banner1.jpg",
+      heading: "You are our friend, not patient.",
+      subheading: "Providing quality healthcare tools worldwide.",
+    },
+    
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,9 +69,9 @@ export default function Banner() {
             <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               {slide.heading}
             </h2>
-            <p className="text-sm sm:text-lg md:text-xl mt-2 sm:mt-4">
+            {/* <p className="text-sm sm:text-lg md:text-xl mt-2 sm:mt-4">
               {slide.subheading}
-            </p>
+            </p> */}
           </div>
         </div>
       ))}
