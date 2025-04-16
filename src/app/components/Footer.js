@@ -68,18 +68,24 @@ export default function Footer() {
               At HealthCare Pro, we are dedicated to improving patient lives
               with high-quality care.
             </p>
-            <p className="flex justify-center sm:justify-start items-center mb-1">
-              <FaMapMarkerAlt className="text-[#1b2565] mr-2" />
-              Jorpati, Kathmandu, Nepal
-            </p>
-            <p className="flex justify-center sm:justify-start items-center mb-1">
-              <FaPhoneAlt className="text-[#1b2565] mr-2" />
-              +977-9808181796
-            </p>
-            <p className="flex justify-center sm:justify-start items-center">
-              <FaEnvelope className="text-[#1b2565] mr-2" />
-              aarogyaskinclinic@gmail.com
-            </p>
+            <Link href="/contact">
+              <p className="flex justify-center sm:justify-start items-center mb-1">
+                <FaMapMarkerAlt className="text-[#1b2565] mr-2" />
+                Jorpati, Kathmandu, Nepal
+              </p>
+            </Link>
+            <Link href ='tel:9808181796'>  
+              <p className="flex justify-center sm:justify-start items-center mb-1">
+                <FaPhoneAlt className="text-[#1b2565] mr-2" />
+                +977-9808181796
+              </p>
+            </Link>
+            <Link href="mailto:aarogyaskinclinic@gmail.com">
+              <p className="flex justify-center sm:justify-start items-center">
+                <FaEnvelope className="text-[#1b2565] mr-2" />
+                aarogyaskinclinic@gmail.com
+              </p>
+            </Link>
           </div>
 
           {/* Links */}

@@ -1,5 +1,6 @@
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FiFacebook, FiTwitter, FiYoutube } from "react-icons/fi";
+import Link from "next/link";
 
 export default function Topbar() {
     const handleNavigation = (path) => {
@@ -10,18 +11,24 @@ export default function Topbar() {
     <div className="bg-[#fcfff9] text-[#1b2565] border-b border-[#6dc5f1]">
       <div className="container mx-auto flex justify-between items-center py-2 px-4">
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
-          <div className="flex items-center space-x-2">
-            <FaMapMarkerAlt />
-            <span>Jorpati, Kathmandu, Nepal</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FaPhoneAlt />
-            <span>+977-9808181796</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FaEnvelope />
-            <span>aarogyaskinclinic@gmail.com</span>
-          </div>
+          <Link href="/contact">
+            <div className="flex items-center space-x-2">
+              <FaMapMarkerAlt />
+              <span>Jorpati, Kathmandu, Nepal</span>
+            </div>
+          </Link>
+          <Link href="tel:9808181796">
+            <div className="flex items-center space-x-2">
+              <FaPhoneAlt />
+              <span>+977-9808181796</span>
+            </div>
+          </Link> 
+          <Link href="mailto:aarogyaskinclinic@gmail.com">
+            <div className="flex items-center space-x-2">
+              <FaEnvelope />
+              <span>aarogyaskinclinic@gmail.com</span>
+            </div>
+          </Link>
         </div>
 
         <div className="flex space-x-4 text-sm">
