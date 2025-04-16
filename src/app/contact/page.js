@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios";
-import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from "@react-google-maps/api"; // Ensure correct import
+import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 
 const mapContainerStyle = {
   width: "100%",
@@ -11,7 +10,7 @@ const mapContainerStyle = {
 };
 
 const center = {
-  lat: 27.720916, // Example location: Aarogya Clinic, Jorpati, Kathmandu
+  lat: 27.720916,
   lng: 85.371228,
 };
 
@@ -28,17 +27,25 @@ export default function Contact() {
   const [showInfo, setShowInfo] = useState(false);
   const formRef = useRef(null);
 
-  const searchParams = useSearchParams();
-
+  // Scroll to form if URL has #Form hash
   useEffect(() => {
-    if (searchParams.get("scroll") === "form" && formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [searchParams]);
+    const scrollToForm = () => {
+      if (window.location.hash === "#Form" && formRef.current) {
+        setTimeout(() => {
+          formRef.current.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    };
+
+    scrollToForm(); // On mount
+    window.addEventListener("hashchange", scrollToForm); // On hash change
+
+    return () => window.removeEventListener("hashchange", scrollToForm);
+  }, []);
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ", // Replace with your actual API Key
+    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ",
   });
 
   if (!isLoaded) {
@@ -87,8 +94,9 @@ export default function Contact() {
 
   return (
     <div className="bg-white">
-      <div className="max-w-6xl mx-auto p-6">
-        <div id="mapSection">
+      <div className="max-w-6xl mx-auto p-6 grid md:grid-cols-2 gap-10">
+        {/* Map Section */}
+        <div id="mapSection" className="bg-white shadow-lg rounded-lg overflow-hidden">
           <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
             <Marker
               position={center}
@@ -114,59 +122,61 @@ export default function Contact() {
             )}
           </GoogleMap>
         </div>
-        <div id="Form">
-        <form ref={formRef} onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
-          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-          <div className="grid grid-cols-1 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              required
-              className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number (Optional)"
-              className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <textarea
-            name="message"
-            rows="4"
-            placeholder="Your Message"
-            required
-            className="p-3 border rounded-lg w-full mt-4 focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-            value={formData.message}
-            onChange={handleChange}
-          ></textarea>
 
-          <button
-            type="submit"
-            className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      </div>
+        {/* Contact Form Section */}
+        <div id="Form" ref={formRef}>
+          <form onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
+            <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
+            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+            <div className="grid grid-cols-1 gap-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number (Optional)"
+                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Your Message"
+              required
+              className="p-3 border rounded-lg w-full mt-4 focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
