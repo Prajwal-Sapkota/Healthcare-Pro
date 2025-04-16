@@ -46,7 +46,7 @@ export default function Header() {
             <button onClick={() => handleNavigation("/healthtips")} className="text-[#375bc7] hover:text-[#A2D063]">Health Tips</button>
             <button onClick={() => handleNavigation("/aboutus")} className="text-[#375bc7] hover:text-[#A2D063]">About Us</button>
             <button onClick={() => handleNavigation("/pages")} className="text-[#375bc7] hover:text-[#A2D063]">Services</button>
-            <button onClick={() => handleNavigation("/departments")} className="text-[#375bc7] hover:text-[#A2D063]">Departments</button>
+            {/* <button onClick={() => handleNavigation("/departments")} className="text-[#375bc7] hover:text-[#A2D063]">Departments</button> */}
             <button onClick={() => handleNavigation("/contact")} className="text-[#375bc7] hover:text-[#A2D063]">Contact</button>
             <a
               href="tel:9808181796"
@@ -102,7 +102,7 @@ export default function Header() {
               <li><button onClick={() => handleNavigation("/healthtips")} className="text-[#375bc7] hover:text-[#A2D063]">Health Tips</button></li>
               <li><button onClick={() => handleNavigation("/aboutus")} className="text-[#375bc7] hover:text-[#A2D063]">About Us</button></li>
               <li><button onClick={() => handleNavigation("/pages")} className="text-[#375bc7] hover:text-[#A2D063]">Services</button></li>
-              <li><button onClick={() => handleNavigation("/departments")} className="text-[#375bc7] hover:text-[#A2D063]">Departments</button></li>
+              {/* <li><button onClick={() => handleNavigation("/departments")} className="text-[#375bc7] hover:text-[#A2D063]">Departments</button></li> */}
               <li><button onClick={() => handleNavigation("/contact")} className="text-[#375bc7] hover:text-[#A2D063]">Contact</button></li>
             </ul>
           </div>
