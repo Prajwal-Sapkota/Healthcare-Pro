@@ -1,11 +1,13 @@
 import React from "react";
-import {FaUserMd, FaStethoscope, FaBullhorn, FaHospitalSymbol} from "react-icons/fa";
+import {FaUserMd, FaStethoscope, FaBullhorn} from "react-icons/fa";
+import { TbTopologyStarRing3 } from "react-icons/tb";
+
 export const Stats = () => {
   const stats = [
-    { icon: <FaUserMd />, value: "20,537", label: "People Served" },
-    { icon: <FaStethoscope />, value: "16,205", label: "Health Screening Done" },
-    { icon: <FaBullhorn />, value: "10,852", label: "Awareness Events" },
-    { icon: <FaHospitalSymbol />, value: "12,460", label: "Network Institutions" },
+    { icon: <FaUserMd />, value: "110", label: "People Served" },
+    { icon: <FaStethoscope />, value: "1200", label: "Health Screening Done" },
+    { icon: <FaBullhorn />, value: "15", label: "Awareness Events" },
+    { icon: <TbTopologyStarRing3 />, value: "10", label: "Network Institutions" },
   ];
 
   return (
