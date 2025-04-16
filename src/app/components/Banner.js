@@ -36,6 +36,11 @@ export default function Banner() {
       subheading: "Providing quality healthcare tools worldwide.",
     },
     
+    {
+      image: "/images/banner3.jpg",
+      heading: "स्वस्थस्य स्वास्थ्यरक्षणं, आतुरस्य विकारप्रशमनं।",
+      subheading: "Providing quality healthcare tools worldwide.",
+    },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
