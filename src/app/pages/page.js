@@ -73,7 +73,7 @@ export default function Pages() {
               </div>
 
               {openIndex === index && (
-                <div className="mt-2 text-sm text-gray-700 space-y-2 max-w-md ml-4">
+                <div className="mt-2 text-xl text-gray-700 space-y-2 max-w-md ml-4">
                   <div>
                     <strong>What is {service.name}?</strong>
                     <p>{service.details.what}</p>
