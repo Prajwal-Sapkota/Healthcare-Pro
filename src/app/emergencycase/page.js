@@ -21,7 +21,7 @@ export default function EmergencyCase() {
 
           <p className="text-lg sm:text-xl mt-2">
             
-            <Link href="tel:+9771234567890" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
+            <Link href="tel:9808181796" className="font-bold text-[#1b2565] hover:text-[#375bc7] transition inline-flex items-center gap-2">
               <FaPhone className="h-5 w-5" /> +977-9808181796
             </Link>
           </p>
