@@ -65,7 +65,7 @@ export default function Footer() {
           <div className="text-center sm:text-left">
             <h3 className="text-lg font-semibold text-[#1b2565] mb-3">About Us</h3>
             <p className="mb-3">
-              At HealthCare Pro, we are dedicated to improving patient lives
+              At Aarogya Well Care Clinic, we are dedicated to improving patient lives
               with high-quality care.
             </p>
             <Link href="/contact">
