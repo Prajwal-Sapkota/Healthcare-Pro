@@ -25,23 +25,22 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
-  const formRef = useRef(null);
 
   // Scroll to form if URL has #Form hash
-  useEffect(() => {
-    const scrollToForm = () => {
-      if (window.location.hash === "#Form" && formRef.current) {
-        setTimeout(() => {
-          formRef.current.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    };
+  // useEffect(() => {
+  //   const scrollToForm = () => {
+  //     if (window.location.hash === "#Form" && formRef.current) {
+  //       setTimeout(() => {
+  //         formRef.current.scrollIntoView({ behavior: "smooth" });
+  //       }, 100);
+  //     }
+  //   };
 
-    scrollToForm(); // On mount
-    window.addEventListener("hashchange", scrollToForm); // On hash change
+  //   scrollToForm(); // On mount
+  //   window.addEventListener("hashchange", scrollToForm); // On hash change
 
-    return () => window.removeEventListener("hashchange", scrollToForm);
-  }, []);
+  //   return () => window.removeEventListener("hashchange", scrollToForm);
+  // }, []);
 
   // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
@@ -124,8 +123,8 @@ export default function Contact() {
         </div>
 
         {/* Contact Form Section */}
-        <div id="Form" ref={formRef}>
-          <form onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
+       
+          <form onSubmit={handleSubmit} id="Form" className="bg-white shadow-md p-6 rounded-lg">
             <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
             {error && <p className="text-red-500 text-center mb-4">{error}</p>}
             <div className="grid grid-cols-1 gap-4">
@@ -176,7 +175,7 @@ export default function Contact() {
               {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
-        </div>
+        
       </div>
     </div>
   );

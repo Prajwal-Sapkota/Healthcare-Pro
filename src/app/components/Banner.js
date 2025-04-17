@@ -31,7 +31,7 @@ export default function Banner() {
       subheading: "Providing quality healthcare tools worldwide.",
     },
     {
-      image: "/images/banner1.jpg",
+      image: "/images/banner3.jpg",
       heading: "You are our friend, not patient.",
       subheading: "Providing quality healthcare tools worldwide.",
     },
