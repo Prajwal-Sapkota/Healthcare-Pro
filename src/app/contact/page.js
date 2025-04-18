@@ -1,8 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useState, useRef } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
-import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 
 const mapContainerStyle = {
   width: "100%",
@@ -24,35 +24,22 @@ export default function Contact() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  // const [captchaToken, setCaptchaToken] = useState("");
+  // const captchaRef = useRef(null);
   const [showInfo, setShowInfo] = useState(false);
 
-  // Scroll to form if URL has #Form hash
-  // useEffect(() => {
-  //   const scrollToForm = () => {
-  //     if (window.location.hash === "#Form" && formRef.current) {
-  //       setTimeout(() => {
-  //         formRef.current.scrollIntoView({ behavior: "smooth" });
-  //       }, 100);
-  //     }
-  //   };
-
-  //   scrollToForm(); // On mount
-  //   window.addEventListener("hashchange", scrollToForm); // On hash change
-
-  //   return () => window.removeEventListener("hashchange", scrollToForm);
-  // }, []);
-
-  // Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ",
+    googleMapsApiKey: "AIzaSyAzYqqfho8EdU7KDBfRIjnAbWUaB8zOPBQ", 
   });
 
-  if (!isLoaded) {
-    return <div>Loading Map...</div>;
-  }
+  if (!isLoaded) return <div>Loading Map...</div>;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleCaptchaVerify = (token) => {
+    setCaptchaToken(token);
   };
 
   const handleSubmit = async (e) => {
@@ -60,32 +47,33 @@ export default function Contact() {
     setLoading(true);
     setError(null);
 
-    const bdata = {
+    // if (!captchaToken) {
+    //   setError("Please verify the CAPTCHA.");
+    //   setLoading(false);
+    //   return;
+    // }
+
+    const formDataToSend = {
       name: formData.name,
       email: formData.email,
-      description: formData.message,
-      type: "General",
+      phone: formData.phone || "Not Provided",
+      message: formData.message,
     };
 
     try {
-      const response = await axios.post("https://school.samyamd.com.np/api/v1/contact", bdata, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post('/api/contact', formDataToSend);
 
       if (response.status === 200) {
         alert("Message Sent Successfully!");
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
+        setFormData({ name: "", phone: "", email: "", message: "" });
+        // setCaptchaToken("");
+        // captchaRef.current.resetCaptcha();
       } else {
-        alert("Something went wrong. Please try again.");
+        setError("Something went wrong.");
       }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      setError("Failed to send message. Please try again later.");
+    } catch (err) {
+      console.error("API Error:", err);
+      setError("Server error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -94,8 +82,8 @@ export default function Contact() {
   return (
     <div className="bg-white">
       <div className="max-w-6xl mx-auto p-6 grid md:grid-cols-2 gap-10">
-        {/* Map Section */}
-        <div id="mapSection" className="bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Map */}
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
           <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
             <Marker
               position={center}
@@ -122,60 +110,64 @@ export default function Contact() {
           </GoogleMap>
         </div>
 
-        {/* Contact Form Section */}
-       
-          <form onSubmit={handleSubmit} id="Form" className="bg-white shadow-md p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
-            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-            <div className="grid grid-cols-1 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number (Optional)"
-                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="p-3 border rounded-lg w-full focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Your Message"
-              required
-              className="p-3 border rounded-lg w-full mt-4 focus:ring-[#375bc7] focus:border-[#375bc7] text-black bg-white"
-              value={formData.message}
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="bg-white shadow-md p-6 rounded-lg">
+          <h2 className="text-2xl font-semibold text-center mb-4 text-[#1b2565]">Send Us a Message</h2>
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+            className="p-3 border rounded-lg w-full"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone (Optional)"
+              className="p-3 border rounded-lg w-full"
+              value={formData.phone}
               onChange={handleChange}
-            ></textarea>
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="p-3 border rounded-lg w-full"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            required
+            className="p-3 border rounded-lg w-full mt-4 text-black"
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
 
-            <button
-              type="submit"
-              className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-          </form>
-        
+          {/* CAPTCHA */}
+          {/* <div className="mt-4">
+            <HCaptcha
+              sitekey="8a64833c-889a-4a76-a686-a69ee7644f8a" 
+              ref={captchaRef}
+            />
+          </div> */}
+
+          <button
+            type="submit"
+            className="w-full bg-[#375bc7] text-white py-3 rounded-lg hover:bg-[#1b2565] mt-4"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
       </div>
     </div>
   );
